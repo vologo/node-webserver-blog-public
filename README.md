@@ -470,18 +470,18 @@ app.use(
 - nginx 配置 https://blog.csdn.net/Zhooson/article/details/84901573
 - 其他环境自行安装，贼简单的啊哈
 
-* myblog3-web-2222.js / myblog3-admin-1111.js (2 个文件就是端口号不一样)
-  执行 `pm2 start myblog3-web-2222.js` 把 web 的项目启动
-  执行 `pm2 start myblog3-admin-1111.js` 把 admin 的项目启动
+* myblog3-web-2222.js / myblog3-admin-1111.js (2 个文件就是端口号不一样)  
+  执行 `pm2 start myblog3-web-2222.js` 把 web 的项目启动  
+  执行 `pm2 start myblog3-admin-1111.js` 把 admin 的项目启动  
   执行 `pm2 start myblog3-app-5454.js` 把 node 的项目启动
 
 * 文件夹结构；
   以 web 为例子（需要先下载 express）
 
-|--web
-|---- dist (vue 打包的文件)
-|---- myblog3-web-2222.js （ 文件如下代码所示）
-|---- package.json （npm i express）
+|--web  
+|---- dist (vue 打包的文件)  
+|---- myblog3-web-2222.js （ 文件如下代码所示）  
+|---- package.json （npm i express）  
 |---- node_moudles
 
 ```
