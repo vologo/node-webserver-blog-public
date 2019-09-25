@@ -1,5 +1,7 @@
 ## node-webserver-blog-public
 
+### 撸码伤身，点个赞 👍👍👍👍👍👍
+
 三个项目中各种各样的授权参数 已全部修改成自己的授权参数，忘悉知！！！！忘悉知！！！！忘悉知！！！！
 
 ### vue-blog-web
@@ -592,3 +594,119 @@ app.use(
     index index.html index.htm;
     try_files $uri $uri/ /index.html;
 ```
+
+### pm2
+
+> PM2 是 node 进程管理工具，可以利用它来简化很多 node 应用管理的繁琐任务，如性能监控、自动重启、负载均衡等，而且使用非常简单。
+
+#### 安装方法
+
+```
+    npm i pm2 -g
+```
+
+#### 常用命令记录
+
+- pm2 start app.js # 启动 app.js 应用程序
+
+- pm2 start app.js -i 4 # cluster mode 模式启动 4 个 app.js 的应用实例
+
+- pm2 start app.js --name="api" # 启动应用程序并命名为 "api"
+
+- pm2 start app.js --watch # 当文件变化时自动重启应用
+
+- pm2 start script.sh # 启动 bash 脚本
+
+- pm2 list # 列表 PM2 启动的所有的应用程序
+
+- pm2 monit # 显示每个应用程序的 CPU 和内存占用情况
+
+- pm2 show [app-name] # 显示应用程序的所有信息
+
+- pm2 logs # 显示所有应用程序的日志
+
+- pm2 logs [app-name] # 显示指定应用程序的日志
+
+- pm2 flush # 清空所有日志文件
+
+- pm2 stop all # 停止所有的应用程序
+
+- pm2 stop 0 # 停止 id 为 0 的指定应用程序
+
+- pm2 restart all # 重启所有应用
+
+- pm2 reload all # 重启 cluster mode 下的所有应用
+
+- pm2 gracefulReload all # Graceful reload all apps in cluster mode
+
+- pm2 delete all # 关闭并删除所有应用
+
+- pm2 delete 0 # 删除指定应用 id 0
+
+- pm2 scale api 10 # 把名字叫 api 的应用扩展到 10 个实例
+
+- pm2 reset [app-name] # 重置重启数量
+
+- pm2 startup # 创建开机自启动命令
+
+- pm2 save # 保存当前应用列表
+
+- pm2 resurrect # 重新加载保存的应用列表
+
+- pm2 update # Save processes, kill PM2 and restore processes
+
+- pm2 generate # Generate a sample json configuration file
+
+pm2 文档地址：http://pm2.keymetrics.io/docs/usage/quick-start/
+
+### 关于 koa 中环境变量
+
+在 blog-koa／package.json 中
+
+```
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon myblog3-app-5454.js",
+    "prod": "cross-env NODE_ENV=production nodemon myblog3-app-5454.js"
+  },
+```
+
+我们在本地调试中可以使用 `npm run dev` 去拿到 `process.env.NODE_ENV`的环境变量，我们在 pm2 的环境下如何拿到呢？？
+
+具体实现的方法：（本文此处的才标注此代码，具体文件中`不做代码添加`）
+
+步骤 1:
+和 `myblog3-app-5454.js` 同级别创建文件： `ecosystem.config.js`
+
+```
+    // 这里可以写 生产环境，测试环境，预发布环境等
+    module.exports = {
+        apps: [{
+            // 生产环境
+            name: "myblog3-app-5454-prod",
+            // 项目启动入口文件
+            script: "./myblog3-app-5454.js",
+            // 项目环境变量
+            env: {
+                "NODE_ENV": "production",
+                "PORT": 5454
+            }
+        },
+        {
+            ....
+        }]
+    }
+```
+
+步骤 2: 修改的`package.json`文件，添加一行代码：
+
+```
+    "start": "pm2 start ecosystem.config.js --only myblog3-app-5454-prod --watch"
+```
+
+步骤 3: 如何运行项目
+
+本文初说明可以用的 `pm2 start myblog3-app-5454.js` 的方式运行，现在使用 `npm start`启动， `myblog3-app-5454-prod` 代表这个进程的 name ，其实就是--name=myblog3-app-5454-prod 的写法
+
+步骤 4: 直接文件中就可以 `process.env.NODE_ENV`
+
+PS: 不需要的 `process.env.NODE_ENV` 此功能的完全前一种方式就可以了，不过项目毕竟都是区分环境，最好的使用下哈
