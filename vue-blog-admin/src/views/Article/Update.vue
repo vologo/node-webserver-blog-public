@@ -32,7 +32,8 @@
             <i class="el-icon-plus"></i>
           </el-upload>
           <img width="100%" :src="ruleForm.cover" alt="" style="display:none">
-          <el-dialog :visible.sync="dialogVisible" size="tiny">
+          <el-dialog :visible.sync="dialogVisible"
+            :modal-append-to-body="false">
             <img width="100%" :src="ruleForm.cover" alt="">
           </el-dialog>
         </el-form-item>

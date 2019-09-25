@@ -121,7 +121,7 @@ export default class Http {
         return new Promise((resolve, reject) => {
             Axios({
                     method: 'post',
-                    url: `${process.env.API_ROOT}/api/upload`,
+                    url: `${process.env.VUE_APP_BASE_API}/api/upload`,
                     data: formdata,
                     //   headers: {
                     //       authorization: `Bearer ${
