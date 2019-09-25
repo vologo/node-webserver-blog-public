@@ -1,5 +1,9 @@
 ## node-webserver-blog-public
 
+[源码地址](https://github.com/liuxingzhijian1320/node-webserver-blog-public)
+
+[博客地址](http://www.zhooson.cn/)
+
 ### 撸码伤身，点个赞 👍👍👍👍👍👍
 
 三个项目中各种各样的授权参数 已全部修改成自己的授权参数，忘悉知！！！！忘悉知！！！！忘悉知！！！！
