@@ -714,3 +714,7 @@ pm2 文档地址：http://pm2.keymetrics.io/docs/usage/quick-start/
 步骤 4: 直接文件中就可以 `process.env.NODE_ENV`
 
 PS: 不需要的 `process.env.NODE_ENV` 此功能的完全前一种方式就可以了，不过项目毕竟都是区分环境，最好的使用下哈
+
+转载请附上原文出处链接及本声明。
+原文链接：http://www.zhooson.cn/article/detail?id=8
+https://github.com/liuxingzhijian1320/node-webserver-blog-public
