@@ -176,7 +176,7 @@
         <h2 class="lg">昵称：{{item.username}}</h2>
         <p>内容：{{item.content}}</p>
         <span class="cd-date wow fadeIn"
-          data-wow-delay="1s">{{item.createdAt}}</span>
+          data-wow-delay="1s">{{item.createdAt | timeStampFormat}}</span>
 
         <!-- <div class="callback pointer" @click="juder">
           {{hasUserInfo?'回复':'登录以回复'}}
