@@ -118,6 +118,7 @@ class ArticleModel {
             raw: true,
             where: {
                 // author,
+                is_del: 0,
                 browser: {
                     // 浏览量 大于 100
                     [Op.gte]: 100

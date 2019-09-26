@@ -50,4 +50,14 @@ export default class Utils {
         return obj
     }
 
+
+    static getLocalStorageUserInfo() {
+        let userinfo;
+        if (localStorage.getItem("zhooson_blog_userinfo") && localStorage.getItem("zhooson_blog_userinfo") != 'undefined') {
+            userinfo = JSON.parse(localStorage.getItem("zhooson_blog_userinfo"))
+        } else {
+            userinfo = {}
+        }
+        return userinfo
+    }
 }

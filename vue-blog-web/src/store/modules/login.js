@@ -1,3 +1,5 @@
+import Utils from "src/assets/scripts/utils";
+
 const state = {
     isNeedLogin: false, // login model 显示与否
     userInfo: {
@@ -28,9 +30,9 @@ const mutations = {
             email,
             url,
             avatar
-        } = localStorage.getItem('zhooson_blog_userinfo') ? JSON.parse(localStorage.getItem('zhooson_blog_userinfo')) : {};
+        } = Utils.getLocalStorageUserInfo()
 
-        if (username && email) {
+        if (username) {
             state.hasUserInfo = true
         } else {
             state.hasUserInfo = false
