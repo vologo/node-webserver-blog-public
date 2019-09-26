@@ -19,7 +19,7 @@ export default {
   },
   async created() {
     let code = Utils.getQueryString("code") ? Utils.getQueryString("code") : "";
-    console.info("code", code);
+    // console.info("code", code);
     if (code) {
       const { data = {} } = await Api.getGithubToken({ code });
       localStorage.setItem("zhooson_blog_github", JSON.stringify(data));

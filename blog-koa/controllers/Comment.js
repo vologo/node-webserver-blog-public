@@ -53,7 +53,6 @@ class Comment {
         // getAddress(ctx.request.host)
         // getAddress('118.25.35.81')
 
-        console.info('提交参数', ctx.request.body)
         let params = {
             username,
             avatar,
@@ -275,7 +274,6 @@ class Comment {
         try {
             await CommentModel.hidden(id, { status });
             let data = await CommentModel.detail(id);
-            console.info
             ctx.response.status = 200;
             ctx.body = {
                 code: 200,

@@ -113,7 +113,6 @@ export default {
       this.ruleForm.cover = "";
     },
     successPic(file) {
-      console.info(234, file);
       this.ruleForm.cover = file.data.url;
     },
     handlePictureCardPreview(file) {

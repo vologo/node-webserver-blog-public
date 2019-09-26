@@ -46,7 +46,6 @@ const mutations = {
         };
     },
     registerUserinfo(state, payload) {
-        console.info('payloadpayload', payload)
         localStorage.setItem('zhooson_blog_userinfo', JSON.stringify(payload))
     }
 };

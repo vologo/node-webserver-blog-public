@@ -8,7 +8,6 @@ const router = new Router({
     mode: 'history', // ['history', 'hash']
     linkActiveClass: 'active', // active class 名称
     scrollBehavior(to, from, savedPosition) {
-        // console.info(444444444555555, to.hash)
         // 后退页面时, 保留滚动位置
         if (savedPosition) {
             return savedPosition;

@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
  *
  * 配置数据库
  *
- * 第一个参数 boblog    数据库名字
+ * 第一个参数 myblog3   数据库名字
  * 第二个参数 root      数据库名字
  * 第三个参数 password  数据库密码
  */

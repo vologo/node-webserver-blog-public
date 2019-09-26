@@ -64,7 +64,6 @@ export default {
       this.$router.push({
         path: `/article?cate=${item.name}`
       });
-      console.info(234, item);
       this.articleId = item.articleId.join(",");
     },
     async getList() {

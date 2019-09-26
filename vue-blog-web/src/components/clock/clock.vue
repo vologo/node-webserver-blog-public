@@ -66,8 +66,6 @@ export default {
       let minute = this.date.dt.getMinutes();
       let second = this.date.dt.getSeconds();
 
-      console.info(3333, this.date.hours.el);
-
       this.date.hours.el.classList.add("moving");
       this.date.minutes.el.classList.add("moving");
       this.date.seconds.el.classList.add("moving");

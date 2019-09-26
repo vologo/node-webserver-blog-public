@@ -103,8 +103,6 @@ export default {
           }
         }
 
-        console.info("newChildrens", treeArray);
-
         // 获取标题级别
         function getLevel(str = "") {
           const result = str.slice(-1);
@@ -138,8 +136,6 @@ export default {
         }
 
         this.nav = format(treeArray);
-
-        console.info("newTreeArray", this.nav);
       }, 100);
 
       this.detail = data;

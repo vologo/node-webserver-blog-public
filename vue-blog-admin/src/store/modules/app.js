@@ -21,8 +21,6 @@ function filterRoutes(data) {
         }
     }).children
 
-    console.info(11, aa)
-
     return aa
 
 

@@ -30,15 +30,12 @@ class UploadServer {
             const { bucket } = ctx.request.body;
             // 创建可读流
             const reader = fs.createReadStream(file.path);
-            console.info('reader', reader)
 
             let dir = path.join(__dirname, `../public/upload/${bucket}`);
             checkDirExist(dir)
 
             let filePath;
-            console.info('dir', dir)
             let newName = getUploadFileExt(file.name);
-            console.info('newName', newName);
             // 本地
             if (ctx.request.host.indexOf('localhost') > -1) {
                 filePath = dir + `/${newName}`;
@@ -49,7 +46,6 @@ class UploadServer {
 
             // 创建可写流
             const upStream = fs.createWriteStream(filePath);
-            console.info('upStream', upStream)
 
             // 可读流通过管道写入可写流
             reader.pipe(upStream);

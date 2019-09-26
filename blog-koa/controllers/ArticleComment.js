@@ -57,7 +57,6 @@ class ArticleComment {
         // getAddress(ctx.request.host)
         // getAddress('118.25.35.81')
 
-        console.info('提交参数', ctx.request.body)
         let params = {
             username,
             avatar,
@@ -141,9 +140,6 @@ class ArticleComment {
 
             data1 = res.filter(item => item.pid > 0)
             data = res.filter(item => item.pid == 0)
-
-            // console.info('data1', data1)
-            // console.info('data', data)
 
             data.forEach(item => {
                 item.list = [];
