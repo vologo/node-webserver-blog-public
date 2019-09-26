@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
         // 邮箱s
         email: {
             type: DataTypes.STRING(30),
-            allowNull: false,
+            allowNull: true,
             field: 'email',
         },
         // 内容
