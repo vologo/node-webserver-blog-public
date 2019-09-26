@@ -19,6 +19,8 @@
               <el-button type="primary" @click="onSubmit"
                 :loading="!ableToSubmit">登
                 录</el-button>
+
+              <div class="no-account" @click="createAccount">还没有账号？一键生成</div>
             </div>
           </div>
         </div>
@@ -91,6 +93,44 @@ export default {
           that.ableToSubmit = true;
         }
       );
+    },
+    createAccount() {
+      this.$confirm(
+        "一键生成账号密码, 方便登录，账号密码只能生成一次，为了用户不需要在数据库手动插入数据，账号的CURD的接口都已实现，根据自己的需求释放出来",
+        "提示",
+        {
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
+          type: "warning"
+        }
+      )
+        .then(() => {
+          let url = `${this.API}/api/user/register`;
+          this.Http.$login(url, {
+            username: "admin",
+            password: "123",
+            email: 1123
+          }).then(
+            res => {
+              if (res.code == 200) {
+                this.$message({
+                  type: "success",
+                  message: res.message + " 账号：admin  密码：123",
+                  duration: 0,
+                  showClose: true
+                });
+              } else {
+                this.$message.error(res.message);
+              }
+            },
+            err => {
+              let errmsg = JSON.parse(JSON.stringify(err)).response.data
+                .message;
+              this.$message.error(errmsg);
+            }
+          );
+        })
+        .catch(() => {});
     }
   }
 };
@@ -236,5 +276,12 @@ $color: #171346;
       font-size: 12px;
     }
   }
+}
+
+.no-account {
+  text-align: center;
+  margin-top: 20px;
+  color: #fff;
+  cursor: pointer;
 }
 </style>
