@@ -10,8 +10,8 @@
     </div>
     <div class="form">
       <div class="text" :class="isShow?'active':''">
-        <textarea @blur="getBlur" @focus="getFocus"
-          v-model.trim="formData.content" class="textarea" rows="5"></textarea>
+        <textarea @blur="getBlur" @focus="getFocus" v-model.trim="content"
+          class="textarea" rows="5"></textarea>
       </div>
       <div class="emoji-btn">
         <div class="emoji">
@@ -39,12 +39,7 @@ export default {
   },
   data() {
     return {
-      formData: {
-        content: "",
-        avatar: "",
-        email: "",
-        url: ""
-      },
+      content: "",
       isShow: false
     };
   },
@@ -61,20 +56,21 @@ export default {
       }
     },
     async submit() {
-      const { content, avatar, email, url } = this.formData;
-      if (!content) {
+      const { avatar, email, username } = this.userInfo;
+
+      if (!this.content) {
         Utils.Toast("请填写留言信息哦😊😊～", 2000);
         return;
       }
       let params = {
         avatar,
-        content,
-        email: this.userInfo.email,
-        username: this.userInfo.username
+        content: this.content,
+        email: email,
+        username: username
       };
       await Api.createComment(params).then(res => {
+        this.content = "";
         Utils.Toast("等待管理员审核评论😊", 2000);
-        this.formData.content = "";
       });
     }
   }
