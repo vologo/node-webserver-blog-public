@@ -510,7 +510,8 @@ app.use(
 3. 针对的 koa 项目发布需要注意点，因为线上每次上传图片写在 public/images 这个文件可千万不能覆盖，为了避免这个问题，自己搭建一个文件服务项目，专门管理文件资源
 
 - 安装其他环境 用 `yum` 的命令安装
-- 安装 Mysql https://blog.csdn.net/Zhooson/article/details/84314451
+- 安装 Mysql（mac） https://blog.csdn.net/Zhooson/article/details/84314451
+- 安装 Mysql（window） https://blog.csdn.net/Zhooson/article/details/101428300
 - nginx 配置 https://blog.csdn.net/Zhooson/article/details/84901573
 - 其他环境自行安装，贼简单的啊哈
 
