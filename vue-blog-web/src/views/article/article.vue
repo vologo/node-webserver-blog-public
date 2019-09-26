@@ -71,6 +71,7 @@ export default {
       let params = {
         pageIndex: 1,
         pageSize: 20,
+        is_del: 0,
         keyword: "",
         articleId: this.articleId
       };

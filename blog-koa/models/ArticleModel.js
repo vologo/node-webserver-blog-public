@@ -62,11 +62,12 @@ class ArticleModel {
      * @returns {Promise<*>}
      */
     static async list(params) {
-        let { author, pageIndex, pageSize, keyword, articleId = null } = params;
+        let { author, pageIndex, pageSize, keyword, articleId = null, is_del = 10 } = params;
 
         // 动态搜索字段
         let newWhere = {
             author,
+            is_del: is_del == 10 ? [0, 1] : [`${is_del}`],
             title: {
                 // 模糊查询
                 [Op.like]: '%' + keyword + '%',
