@@ -575,9 +575,9 @@ app.use(
   具体详见 ngixn.conf
 
 ```
-    #博客 - 后台管理
-    upstream myblog3Admin {
-    	server 127.0.0.1:1111;
+    #博客 - 前端（vue）
+    upstream myblog3Web {
+    	server 127.0.0.1:2222;
     }
 
     server {
