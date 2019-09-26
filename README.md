@@ -1,4 +1,4 @@
-## node-webserver-blog-public
+# node-webserver-blog-public
 
 [源码地址](https://github.com/liuxingzhijian1320/node-webserver-blog-public)
 
@@ -6,14 +6,14 @@
 
 [CSDN](https://blog.csdn.net/Zhooson/article/details/101194970)
 
-### 运行项目前必读
+## 运行项目前必读
 
 1. 三个项目中各种各样的授权参数 已全部修改成自己的授权参数，忘悉知！！！！忘悉知！！！！忘悉知！！！！
 2. 自己创建一个数据库名称就可以了，表是运行 node 时候自动创建好  
    以 `myblog3` 为数据库名称， admin 登录页面有个 `一键生成`地方生成账号：admin 密码：123， 只能生成一次，因为是程序写死的账号，省的您手动去数据库中 User 表去添加一条账户信息。账户的体系的增删改查的接口都已经实现，根据自己的需求去释放出来
    您可以很愉快的登录玩耍了
 
-### 整套项目功能
+## 整套项目功能
 
 1. 前端 BLOG 功能介绍：
 
@@ -37,7 +37,7 @@
 
 node 主要是后端接口，具体的接口的具体查看代码。
 
-### vue-blog-web
+## vue-blog-web
 
 - 代理(5454 为 node 的端口)
 
@@ -165,7 +165,7 @@ node 主要是后端接口，具体的接口的具体查看代码。
 
 - 其他都是 vue 的基础的知识，省略。。。
 
-### vue-blog-admin
+## vue-blog-admin
 
 - 项目基础配置详见(vue-cli3-admin)[https://github.com/liuxingzhijian1320/vue-cli3-admin]
 
@@ -194,7 +194,7 @@ node 主要是后端接口，具体的接口的具体查看代码。
 实现的主要方法： meta 的 `hidden` 的属性  
 具体查看（vue-blog-admin/src/router/routes.js）
 
-### vue-blog-koa
+## vue-blog-koa
 
 - 使用 koa-generator 生成 koa2 项目
 
@@ -494,7 +494,7 @@ app.use(
   })
 ```
 
-### 数据库表介绍
+## 数据库表介绍
 
 - article -------------- 文章
 - articleComment ------- 文章评论
@@ -503,7 +503,7 @@ app.use(
 - comment -------------- 留言
 - user ----------------- 用户
 
-### 发布
+## 发布
 
 1. 我的服务器环境 是 CentOS 7.5 64 位
 2. web 和 admin 打包发布 dist 的文件， koa 全部文件发布，别发布 nodel_modules 啊， 自己的服务器安装 node，nginx，pm2 ， Mysql 等操作
@@ -542,7 +542,7 @@ app.use(
     });
 ```
 
-### nginx 配置
+## nginx 配置
 
 - 登录服务器(2 种登录方式)
 
@@ -637,17 +637,17 @@ app.use(
     try_files $uri $uri/ /index.html;
 ```
 
-### pm2
+## pm2
 
 > PM2 是 node 进程管理工具，可以利用它来简化很多 node 应用管理的繁琐任务，如性能监控、自动重启、负载均衡等，而且使用非常简单。
 
-#### 安装方法
+### 安装方法
 
 ```
     npm i pm2 -g
 ```
 
-#### 常用命令记录
+### 常用命令记录
 
 - pm2 start app.js # 启动 app.js 应用程序
 
@@ -701,7 +701,7 @@ app.use(
 
 pm2 文档地址：http://pm2.keymetrics.io/docs/usage/quick-start/
 
-### 关于 koa 中环境变量
+## 关于 koa 中环境变量
 
 在 blog-koa／package.json 中
 
