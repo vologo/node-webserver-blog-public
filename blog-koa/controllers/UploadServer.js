@@ -28,65 +28,67 @@ class UploadServer {
             // 上传单个文件
             const file = ctx.request.files.file; // 获取上传文件
             const { bucket } = ctx.request.body;
+
             // 创建可读流
             const reader = fs.createReadStream(file.path);
+            // console.info('reader', reader)
 
+            // 生成文件夹
             let dir = path.join(__dirname, `../public/upload/${bucket}`);
             checkDirExist(dir)
 
-            let filePath;
+            // 生成图片文件名字
             let newName = getUploadFileExt(file.name);
-            // 本地
-            if (ctx.request.host.indexOf('localhost') > -1) {
-                filePath = dir + `/${newName}`;
-            } else {
-                // 线上
-                filePath = `${dir}/${newName}`
-            }
+            console.info('newName', newName);
+
+            // 文件目录
+            let filePath = `${dir}/${newName}`
 
             // 创建可写流
             const upStream = fs.createWriteStream(filePath);
+            // console.info('upStream', upStream)
 
             // 可读流通过管道写入可写流
             reader.pipe(upStream);
-
             /**
-                        //读取文件发生错误事件
-                        reader.on('error', (err) => {
-                            console.log('发生异常:', err);
-                        });
-                        //已打开要读取的文件事件
-                        reader.on('open', (fd) => {
-                            console.log('文件已打开:');
-                        });
-                        //文件已经就位，可用于读取事件
-                        reader.on('ready', () => {
-                            console.log('文件已准备好..');
-                        });
+              //读取文件发生错误事件
+              reader.on('error', (err) => {
+                  console.log('发生异常:', err);
+              });
+              //已打开要读取的文件事件
+              reader.on('open', (fd) => {
+                  console.log('文件已打开:');
+              });
+              //文件已经就位，可用于读取事件
+              reader.on('ready', () => {
+                  console.log('文件已准备好..');
+              });
 
-                        //文件读取中事件·····
-                        reader.on('data', (chunk) => {
-                            console.log('读取文件数据:');
-                        });
+              //文件读取中事件·····
+              reader.on('data', (chunk) => {
+                  console.log('读取文件数据:');
+              });
 
-                        //文件读取完成事件
-                        reader.on('end', () => {
-                            console.log('读取已完成..');
-                        });
+              //文件读取完成事件
+              reader.on('end', () => {
+                  console.log('读取已完成..');
+              });
 
-                        //文件已关闭事件
-                        reader.on('close', () => {
-                            console.log('文件已关闭！');
-                        });
+              //文件已关闭事件
+              reader.on('close', () => {
+                  console.log('文件已关闭！');
+              });
 
             */
+
+            let urlstr = `${ctx.origin}/upload/${bucket}/${newName}`
 
             ctx.response.status = 200;
             ctx.body = {
                 code: 200,
                 message: `上传成功！`,
                 data: {
-                    url: `http://myblog3.zhooson.cn/upload/${bucket}/${newName}`,
+                    url: urlstr,
                     createTime: +new Date()
                 }
             };
