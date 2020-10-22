@@ -2,7 +2,7 @@
 
 [源码地址](https://github.com/liuxingzhijian1320/node-webserver-blog-public)
 
-[博客地址](http://www.zhooson.cn/)
+[博客地址](https://www.zhooson.cn/)
 
 [CSDN](https://blog.csdn.net/Zhooson/article/details/101194970)
 

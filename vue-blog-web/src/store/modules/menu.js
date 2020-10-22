@@ -1,34 +1,29 @@
 const state = {
     nav: [{
-            name: '首页',
+            name: "首页",
             type: 0,
-            path: '/',
+            path: "/"
         },
         {
-            name: '文章',
+            name: "文章",
             type: 0,
-            path: '/article',
+            path: "/article"
         },
         {
-            name: '留言',
+            name: "留言",
             type: 1,
-            path: '/comment',
+            path: "/comment"
         },
         {
-            name: '作品',
+            name: "关于本站",
             type: 0,
-            path: '/product',
-        },
-        {
-            name: '关于本站',
-            type: 0,
-            path: '/about',
-        },
-    ],
+            path: "/about"
+        }
+    ]
 };
 
 const getters = {
-    nav: state => state.nav,
+    nav: state => state.nav
 };
 
 const mutations = {};
@@ -41,5 +36,5 @@ export default {
     getters,
     mutations,
 
-    namespaced: true, // 命名空间
+    namespaced: true // 命名空间
 };
